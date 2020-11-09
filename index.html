@@ -1,59 +1,44 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TO-DO LIST !</title>
-    <style>
-        *{
-            cursor: pointer;
-            background-color:whitesmoke;
-        }
-        h1{
-            text-align: center;
-        }
-        #div{
-            text-align: center;
-        }
-        #space{
-            text-align: center;
-            font-size: 25px;
-        }
-     
-    </style>
+    <title>To-Do-List !</title>
 </head>
 <body>
-    <button type="button" id="my" onclick="myfunction1()">Info</button>
-    <h1>TO-DO LIST !</h1>
-     <br>
-     <div id="div">
-         <input type="text" placeholder="ENTER" id="work">
-         <button type="button" id="get" onclick="myfunction()">+</button>
-     </div>
-     <br>
-     <div id="space"></div>
+    <h1 style="text-align:center;font-family:cursive;">To-Do list !</h1>
+    <br>
+    <div class="sup" style="text-align:center;font-family:cursive">
+    <input type="text" name="" value="" placeholder="Enter" id="input" style="font-family:cursive;">
+    <button type="button" name="button" onclick="myfunction()">+</button>
+    <button type="button" name="button" onclick="myfunction1()" style="">Clear list</button>
+</div>
+<div class="" id="space" style="text-align:center;font-size:25px;font-family:cursive">
+
+</div>
 </body>
- <script>
- // myfunction1 gives you info on how to use this page by clicking on the info button
-     function myfunction1(){
-         alert("Use this page to write down all your important things ! and then coss it out using by clicking on your items !");
-     }
-     // getting the elements from the HTML to javascript using the "getElementById"
-     var x = document.getElementById("work");
-     var y = document.getElementById("space");
+<script type="text/javascript">
+    //javascript code goes here
+   function myfunction(){
+     let input = document.getElementById("input");
+     let space = document.getElementById("space");
 
-     function myfunction(){
-         var para = document.createElement("p");
-         para.innerText = x.value;
-         y.appendChild(para);
-         x.value = "";
-         
-         para.addEventListener("click",add);
+    let para = document.createElement("p");
+    space.appendChild(para);
+    para.innerHTML = input.value;
+    input.value = "";
 
-         function add(){
-            para.style.textDecoration = "line-through";
-         }
-     }
- </script>
+   para.addEventListener("click",function(){
+     para.style.textDecoration = "line-through";
+   });
+  para.addEventListener("dblclick",function(){
+       space.removeChild(para);
+  })
+   }
+    // clearing the text by callling "myfunction1()" through button "clear list"
+   function myfunction1(){
+       // basically  , on clicking the button "clear list" we will call the function "myfunction1()" and execuite it  , inside the function the block of code will be executed and the inner text of the div element will be wn emoty string !
+     space.innerText = "";
+   }
+</script>
 </html>
